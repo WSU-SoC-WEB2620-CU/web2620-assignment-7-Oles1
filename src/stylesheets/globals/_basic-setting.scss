@@ -1,0 +1,23 @@
+a {
+  text-decoration: none;
+  color: blue;
+}
+a:link {
+  color: red;
+}
+
+/* mouse over link */
+a:hover {
+  color: darken($jumbo-bkgrd-color, 50%);
+}
+a:focus {
+  color: darken($jumbo-bkgrd-color, 50%);
+  border-bottom: 4px solid darken($jumbo-bkgrd-color, 50%);
+  padding: 0.2em;
+  transition: 0.3s;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}

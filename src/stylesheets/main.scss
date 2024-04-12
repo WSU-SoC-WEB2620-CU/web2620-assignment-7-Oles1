@@ -1,1 +1,186 @@
-// Your styles go here
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "globals/mixins";
+@import "globals/variables";
+@import "globals/basic-setting";
+
+//CSS reset
+html {
+  font-size: 16px;
+}
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  //   margin: 0.5rem 2rem;
+  background-color: $body-bkgrd-color;
+  p {
+    font-size: $base-font-size * 0.8;
+    line-height: $base-line-height;
+  }
+}
+//to put in @extend ul-base-style{list-style-type: none;margin: 0; padding: 0;}
+
+//elements style
+nav {
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: $base-font-size * 0.8;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 0.2em 1em;
+    }
+    li:hover,
+    li:last-child:hover,
+    li:focus {
+      border-bottom: 5px solid darken($jumbo-bkgrd-color, 50%);
+      color: black;
+      transition: 0.3s;
+    }
+
+    li:last-child {
+      //selecting the last li element
+      border: 2px solid darken($jumbo-bkgrd-color, 30%);
+      border-radius: $base-border-radius;
+      color: green;
+      background-color: $tile-bkgrd-color;
+    }
+  }
+}
+
+//classes style
+.logo {
+  margin-right: auto;
+  display: inline-block;
+  color: darken($jumbo-bkgrd-color, 50%);
+}
+.active {
+  border-bottom: 5px solid darken($jumbo-bkgrd-color, 50%);
+}
+.centered {
+  text-align: center;
+}
+.generic-padding {
+  padding: 1em 0.5em;
+}
+.myjumbo {
+  background-color: $jumbo-bkgrd-color;
+  padding: 0 4em;
+  height: 100dvh;
+}
+.banner {
+  // border: 2px solid orange;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2em;
+  align-content: center;
+  align-items: center;
+  margin: 8rem 10rem;
+  p {
+    line-height: $base-line-height;
+    font-size: $base-font-size;
+  }
+}
+.shadowed {
+  box-shadow: 10px 10px 5px 0px darken($body-bkgrd-color, 30%);
+  transition: $base-transition;
+}
+.card-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  .card {
+    border: 1px solid darken($tile-bkgrd-color, 20%);
+    display: flex;
+    flex-direction: column;
+    background-color: $tile-bkgrd-color;
+    padding: 0.5em 2em;
+    align-items: center;
+    border-radius: $base-border-radius;
+  }
+  .card:hover {
+    @extend .shadowed;
+  }
+}
+.bottom-marginL {
+  margin-bottom: 0.2em;
+}
+.bottom-marginXL {
+  margin-bottom: 2em;
+}
+.big-wrap {
+  padding: 0 5em 5em;
+}
+.tile-wrap {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 1em;
+}
+
+.tile {
+  background-color: $tile-bkgrd-color;
+  padding: 1em;
+  border-radius: $base-border-radius;
+  &:hover {
+    @extend .shadowed;
+  }
+  h1 + p {
+    font-size: $base-font-size;
+    margin-bottom: 1em;
+  }
+  img {
+    display: block;
+    // object-fit: scale-down;
+    max-width: 100%;
+  }
+}
+
+.flexy {
+  display: flex;
+  gap: 1em;
+}
+.footer {
+  padding-bottom: 3em;
+  background-color: $tile-bkgrd-color;
+}
+
+.column-wrap {
+  background-color: $tile-bkgrd-color;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2em;
+  gap: 5rem;
+  padding: 2em 5em 2em;
+  ul {
+    line-height: $base-line-height;
+    font-size: $base-font-size * 0.8;
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+  }
+}
+.dark-span {
+  background-color: black;
+  margin-right: -5px;
+
+  color: white;
+  border-radius: $base-border-radius 0 0 $base-border-radius;
+}
+.blue-span {
+  background-color: rgb(46, 75, 145);
+  color: white;
+  border-radius: 0 $base-border-radius $base-border-radius 0;
+}
