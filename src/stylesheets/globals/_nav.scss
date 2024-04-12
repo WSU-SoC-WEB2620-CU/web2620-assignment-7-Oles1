@@ -1,0 +1,30 @@
+nav {
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: $base-font-size * 0.8;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 0.2em 1em;
+    }
+    li:hover,
+    li:last-child:hover,
+    li:focus {
+      border-bottom: 5px solid darken($jumbo-bkgrd-color, 50%);
+      color: black;
+      transition: 0.3s;
+    }
+
+    li:last-child {
+      //selecting the last li element
+      border: 2px solid darken($jumbo-bkgrd-color, 30%);
+      border-radius: $base-border-radius;
+      color: green;
+      background-color: $tile-bkgrd-color;
+    }
+  }
+}

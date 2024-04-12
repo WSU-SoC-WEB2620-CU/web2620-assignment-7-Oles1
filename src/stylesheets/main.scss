@@ -2,83 +2,59 @@
 @import "globals/mixins";
 @import "globals/variables";
 @import "globals/basic-setting";
-
-//CSS reset
-html {
-  font-size: 16px;
-}
-*,
-::before,
-::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import "globals/nav";
 
 body {
-  //   margin: 0.5rem 2rem;
   background-color: $body-bkgrd-color;
   p {
     font-size: $base-font-size * 0.8;
     line-height: $base-line-height;
   }
 }
-//to put in @extend ul-base-style{list-style-type: none;margin: 0; padding: 0;}
 
-//elements style
-nav {
-  ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    font-size: $base-font-size * 0.8;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-
-    li {
-      padding: 0.2em 1em;
-    }
-    li:hover,
-    li:last-child:hover,
-    li:focus {
-      border-bottom: 5px solid darken($jumbo-bkgrd-color, 50%);
-      color: black;
-      transition: 0.3s;
-    }
-
-    li:last-child {
-      //selecting the last li element
-      border: 2px solid darken($jumbo-bkgrd-color, 30%);
-      border-radius: $base-border-radius;
-      color: green;
-      background-color: $tile-bkgrd-color;
-    }
-  }
-}
-
-//classes style
-.logo {
+//classes
+.pull-left {
   margin-right: auto;
-  display: inline-block;
   color: darken($jumbo-bkgrd-color, 50%);
 }
 .active {
   border-bottom: 5px solid darken($jumbo-bkgrd-color, 50%);
 }
-.centered {
-  text-align: center;
-}
+
 .generic-padding {
   padding: 1em 0.5em;
+  text-align: center;
 }
 .myjumbo {
   background-color: $jumbo-bkgrd-color;
   padding: 0 4em;
   height: 100dvh;
 }
+@mixin div-loop {
+  // border: 1px solid darken($jumbo-bkgrd-color, 50%);
+  width: $div-loop-width;
+  height: 2em;
+}
+// $colors: $icons: ("eye": "\f112", "start": "\f12e", "stop": "\f12f");
+$colors: (
+  "green": green,
+  "brown": brown,
+  "blue": blue,
+  "orange": orange,
+  "red": red,
+);
+@each $key, $val in $colors {
+  .div-loop-#{$key} {
+    @include div-loop;
+    background-color: $val;
+  }
+  .div-loop-#{$key}:hover {
+    border: 3px solid darken($val, 50%);
+    background-color: lighten($val, 20%);
+  }
+}
+
 .banner {
-  // border: 2px solid orange;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -102,12 +78,7 @@ nav {
   gap: 1em;
   .card {
     border: 1px solid darken($tile-bkgrd-color, 20%);
-    display: flex;
-    flex-direction: column;
-    background-color: $tile-bkgrd-color;
-    padding: 0.5em 2em;
-    align-items: center;
-    border-radius: $base-border-radius;
+    @include card-basis;
   }
   .card:hover {
     @extend .shadowed;
@@ -145,6 +116,9 @@ nav {
     max-width: 100%;
   }
 }
+.themed {
+  background-color: coral;
+}
 
 .flexy {
   display: flex;
@@ -157,25 +131,16 @@ nav {
 
 .column-wrap {
   background-color: $tile-bkgrd-color;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 2em;
-  gap: 5rem;
-  padding: 2em 5em 2em;
+  @include column-wrap;
   ul {
     line-height: $base-line-height;
     font-size: $base-font-size * 0.8;
-    list-style-type: none;
-    list-style-position: inside;
-    margin: 0;
-    padding: 0;
+    @include ul-basis;
   }
 }
 .dark-span {
   background-color: black;
   margin-right: -5px;
-
   color: white;
   border-radius: $base-border-radius 0 0 $base-border-radius;
 }

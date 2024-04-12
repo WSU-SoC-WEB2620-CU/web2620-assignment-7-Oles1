@@ -12,7 +12,9 @@
       <header>
         <nav>
           <ul>
-            <li class="logo"><i class="fa-solid fa-warehouse fa-2x"></i>The Warehouse</li>
+            <li class="pull-left">
+              <i class="fa-solid fa-warehouse fa-2x"></i><button id="theme"></button>The Warehouse
+            </li>
             <li class="active"><a href="">Home</a></li>
             <li><a href="">Examples</a></li>
             <li><a href="">Features</a></li>
@@ -27,14 +29,22 @@
       <div class="banner">
         <h1>The new standard in Web Development</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
+          Below is a rainbow to illustrate the use of sass @each. The @each rule makes it easy to emit styles or
+          evaluate code for each element of a list or each pair in a map. It’s great for repetitive styles that only
+          have a few variations between them.
         </p>
+        <div class="rainbow">
+          <div><h2>Using @each &#9759; &#9759; &#9759; to make a rainbow</h2></div>
+          <div class="div-loop-green"><h3>@each &#9759; &#9759; &#9759;</h3></div>
+          <div class="div-loop-brown"></div>
+          <div class="div-loop-blue"></div>
+          <div class="div-loop-orange"></div>
+          <div class="div-loop-red"></div>
+        </div>
       </div>
     </div>
     <div>
-      <p class="centered generic-padding">
+      <p class="generic-padding">
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       </p>
     </div>
@@ -288,14 +298,12 @@
           </ul>
         </div>
       </div>
-      <p class="centered bottom-marginXL">
-        <a href="">
-          <i class="fas fa-house-damage"></i>
-        </a>
+      <p class="generic-padding">
+        <a href=""> <i class="fas fa-house-damage"></i></a>
       </p>
 
       <a href="">
-        <div class="centered">
+        <div class="generic-padding">
           <span class="dark-span generic-padding">Papy Olenga</span>
           <span class="blue-span generic-padding">WSU_Web2620</span>
         </div>
